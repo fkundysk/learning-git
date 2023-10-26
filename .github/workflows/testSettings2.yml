@@ -17,33 +17,33 @@ jobs:
       - name: Read settings.xml file
         run: cat /home/runner/.m2/settings.xml
 
-      - name: Setup Maven Action
-        uses: s4u/setup-maven-action@v1.10.0
+      #- name: Setup Maven Action
+        #uses: s4u/setup-maven-action@v1.10.0
 
       - name: Checkout Main Branch
         uses: actions/checkout@v3
 
-      - name: maven-settings-action
-        uses: s4u/maven-settings-action@v2.8.0
-        with:
-            servers: |
-              [
-                {
-                "id": "TEST",
-                "username": "TESTUSERNAME",
-                "password": "TESTPASSWORD"
-                }
-              ]   
-            githubServer: false
+      #- name: maven-settings-action
+        #uses: s4u/maven-settings-action@v2.8.0
+        #with:
+            #servers: |
+              #[
+                #{
+                #"id": "TEST",
+                #"username": "TESTUSERNAME",
+                #"password": "TESTPASSWORD"
+                #}
+              #]
+            #githubServer: false
 
-      - name: Read settings.xml file
-        run: cat /home/runner/.m2/settings.xml
+      #- name: Read settings.xml file
+        #run: cat /home/runner/.m2/settings.xml
 
 
       - name: Adding Lines To settings.xml file
         run: |
           
-          #sed -i 's/<server>/<server>\n<user username="user" password="password" roles="manager-gui,admin-gui"\/>/' /home/runner/.m2/settings.xml
+          sed -i 's/<server>/<server>\n<user username="user" password="password" roles="manager-gui,admin-gui"\/>/' /home/runner/.m2/settings.xml
 
       - name: Read settings.xml file
         run: cat /home/runner/.m2/settings.xml
