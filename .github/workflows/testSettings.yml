@@ -65,7 +65,6 @@ jobs:
             [
               "TEST_PROFILE"
             ]
-          output_file: .m2/settings.xml
 
       - name: Read settings.xml file
         run: cat /home/runner/.m2/settings.xml
