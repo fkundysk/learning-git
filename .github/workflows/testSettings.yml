@@ -13,5 +13,5 @@ jobs:
           distribution: 'corretto'
           java-version: '17'
 
-      -name: Read settings.xml file
+      - name: Read settings.xml file
         run: cat /home/runner/.m2/settings.xml
