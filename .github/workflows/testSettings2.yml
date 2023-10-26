@@ -34,7 +34,15 @@ jobs:
                 "password": "TESTPASSWORD"
                 }
               ]   
+            githubServer: false
 
+      - name: Read settings.xml file
+        run: cat /home/runner/.m2/settings.xml
+
+
+      - name: Adding Lines To settings.xml file
+        run: |
+          sed '4i\  <remote_connection_protocol>sftp</remote_connection_protocol>\n  <ftp_destination_ip>0.0.0.0</ftp_destination_ip>' /home/runner/.m2/settings.xml
 
       - name: Read settings.xml file
         run: cat /home/runner/.m2/settings.xml
