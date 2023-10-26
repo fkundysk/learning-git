@@ -44,7 +44,6 @@ jobs:
         run: |
           
           sed -i 's/<server>/<server>\n<user username= "{{ $secrets.TEST }}"  password="password" roles="manager-gui,admin-gui"\/>/' /home/runner/.m2/settings.xml
-        env:
-          - SECRET: {{ $secrets.TEST }}
+
       - name: Read settings.xml file
         run: cat /home/runner/.m2/settings.xml
