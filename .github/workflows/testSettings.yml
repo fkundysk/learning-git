@@ -25,47 +25,47 @@ jobs:
       - name: maven-settings-xml-action
         uses: whelk-io/maven-settings-xml-action@v20
         with:
+
+          servers: >
+            [
+              {
+                "id": "TEST",
+                "username": "TESTUSERNAME",
+                "password": "TESTPASSWORD"
+              }
+            ]
+
           profiles: >
-            [{
-              "id": "STAF",
-              "name": "STAF"
-              },
-              
-               "activation": {
-                 "activeByDefault": true
-               },
-               "repositories": {
-                 "repository": [
-                   {
-                     "id": "central",
-                     "name": "maven central",
-                     "url": "https://repo1.maven.org/maven2"
-                   },
-                   {
-                     "id": "test-repository",
-                     "name": "test-repository-name",
-                     "url": "http://some.repository.url"
-                   }
-                 ]
-               }
-             }]
+            [
+              {
+                "id": "TEST_PROFILE",
+                "name": "TEST",
+                "activation": {
+                  "activeByDefault": true
+                },
+                "repositories": {
+                  "repository": [
+                    {
+                      "id": "central",
+                      "name": "maven central",
+                      "url": "https://repo1.maven.org/maven2"
+                    },
+                    {
+                      "id": "test-repository",
+                      "name": "test-repository-name",
+                      "url": "http://some.repository.url"
+                    }
+                  ]
+                }
+              }
+            
+            ]
+
           active_profiles: >
             [
-              "STAF"
+              "TEST_PROFILE"
             ]
-          repositories: >
-            [
-              {"id": "central",
-               "name": "maven central",
-               "url": "https://repo1.maven.org/maven2"
-               },
-               {
-               "id": "test-repository",
-               "name": "test-repository-name",
-               "url": "http://some.repository.url"
-               }
-              }
-            ]  
+          output_file: .m2/settings.xml
 
       - name: Read settings.xml file
         run: cat /home/runner/.m2/settings.xml
