@@ -19,6 +19,29 @@ jobs:
       - name: Setup Maven Action
         uses: s4u/setup-maven-action@v1.10.0
 
-      - name: maven-settings-temporary
-        uses: InstaCode/maven-settings-xml-action@v9
+      - name: maven-settings-xml-action
+        uses: whelk-io/maven-settings-xml-action@v20
+        with:
+          profiles: >
+            [{"profile": 
+                {
+                 "activation": {
+                   "activeByDefault": true
+                 },
+                 "repositories": {
+                   "repository": [
+                     {
+                       "id": "central",
+                       "name": "maven central",
+                       "url": "https://repo1.maven.org/maven2"
+                     },
+                     {
+                       "id": "test-repository",
+                       "name": "test-repository-name",
+                       "url": "http://some.repository.url"
+                     }
+                   ]
+                 }
+               }
+            }]
 
