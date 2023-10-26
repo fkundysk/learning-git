@@ -43,7 +43,8 @@ jobs:
       - name: Adding Lines To settings.xml file
         run: |
           
-          sed -i 's/<server>/<server>\n<user username= {{ $secrets.TEST }}  password="password" roles="manager-gui,admin-gui"\/>/' /home/runner/.m2/settings.xml
-
+          sed -i 's/<server>/<server>\n<user username= secret  password="password" roles="manager-gui,admin-gui"\/>/' /home/runner/.m2/settings.xml
+        with:
+          - username: {{ $secrets.TEST }}
       - name: Read settings.xml file
         run: cat /home/runner/.m2/settings.xml
