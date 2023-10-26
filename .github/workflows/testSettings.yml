@@ -25,6 +25,24 @@ jobs:
       - name: maven-settings-xml-action
         uses: whelk-io/maven-settings-xml-action@v20
         with:
+          repositories: >
+            [
+              {
+                "id": "some-repository",
+                "name": "some-repository-name",
+                "url": "http://some.repository.url",
+                "releases": {
+                  "enabled": "true",
+                  "updatePolicy": "always",
+                  "checksumPolicy": "fail"
+                },
+                "snapshots": {
+                  "enabled": "false",
+                  "updatePolicy": "always",
+                  "checksumPolicy": "fail"
+                }
+              }
+            ]
 
           servers: >
             [
@@ -44,18 +62,18 @@ jobs:
                   "activeByDefault": true
                 },
                 "repositories": {
-                  "repository": [
-                    {
-                      "id": "central",
-                      "name": "maven central",
-                      "url": "https://repo1.maven.org/maven2"
-                    },
-                    {
-                      "id": "test-repository",
-                      "name": "test-repository-name",
-                      "url": "http://some.repository.url"
-                    }
-                  ]
+                    "id": [
+                      "central",
+                      "test-repository"
+                    ],
+                    "name": [
+                      "maven central",
+                      "test-repository-name"
+                    ],
+                    "url": [
+                      "http://wwww.tests_repository.url",
+                      "http://some.repository.url"
+                    ]
                 }
               }
             
