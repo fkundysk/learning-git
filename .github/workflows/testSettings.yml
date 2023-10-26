@@ -30,7 +30,7 @@ jobs:
               "id": "STAF",
               "name": "STAF"
               },
-              {
+              
                "activation": {
                  "activeByDefault": true
                },
