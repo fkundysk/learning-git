@@ -19,6 +19,9 @@ jobs:
       - name: Setup Maven Action
         uses: s4u/setup-maven-action@v1.10.0
 
+      - name: Checkout Main Branch
+        uses: actions/checkout@v3
+
       - name: maven-settings-xml-action
         uses: whelk-io/maven-settings-xml-action@v20
         with:
