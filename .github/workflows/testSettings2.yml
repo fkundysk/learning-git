@@ -46,7 +46,7 @@ jobs:
           secret: ${{ secrets.TEST }}
         run: |
           
-          sed -i 's/<server>/<server>\n<user username= "$env:SUPER_SECRET"  password="password" roles="manager-gui,admin-gui"\/>/' /home/runner/.m2/settings.xml
+          sed -i 's/<server>/<server>\n<user username= ${{ secrets.TEST }}  password="password" roles="manager-gui,admin-gui"\/>/' /home/runner/.m2/settings.xml
 
       - name: Read settings.xml file
         run: cat /home/runner/.m2/settings.xml
