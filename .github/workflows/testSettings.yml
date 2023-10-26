@@ -27,6 +27,10 @@ jobs:
         with:
           profiles: >
             [{
+              "id": "STAF",
+              "name": "STAF"
+              },
+              {
                "activation": {
                  "activeByDefault": true
                },
@@ -45,6 +49,23 @@ jobs:
                  ]
                }
              }]
+          active_profiles: >
+            [
+              "STAF"
+            ]
+          repositories: >
+            [
+              {"id": "central",
+               "name": "maven central",
+               "url": "https://repo1.maven.org/maven2"
+               },
+               {
+               "id": "test-repository",
+               "name": "test-repository-name",
+               "url": "http://some.repository.url"
+               }
+              }
+            ]  
 
       - name: Read settings.xml file
         run: cat /home/runner/.m2/settings.xml
