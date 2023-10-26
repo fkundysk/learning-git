@@ -40,15 +40,10 @@ jobs:
         run: cat /home/runner/.m2/settings.xml
 
 
-      #- name: Adding Lines To settings.xml file
-        #run: |
+      - name: Adding Lines To settings.xml file
+        run: |
           
-          #sed -i 's/<tomcat-users>/<tomcat-users>\n<user username="user" password="password" roles="manager-gui,admin-gui"\/>/' /etc/tomcat7/tomcat-users.xml
-          
-          
-          #sed '22i\  <remote_connection_protocol>sftp</remote_connection_protocol>\n  <ftp_destination_ip>0.0.0.0</ftp_destination_ip>' /home/runner/.m2/settings.xml
-          #cat /home/runner/.m2/settings.xml
-          #cat settings.xml
+          #sed -i 's/<settings>/<settings>\n<user username="user" password="password" roles="manager-gui,admin-gui"\/>/' /home/runner/.m2/settings.xml
 
-      #- name: Read settings.xml file
-        #run: cat /home/runner/.m2/settings.xml
+      - name: Read settings.xml file
+        run: cat /home/runner/.m2/settings.xml
