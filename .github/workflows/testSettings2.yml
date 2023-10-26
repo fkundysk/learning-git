@@ -41,10 +41,12 @@ jobs:
 
 
       - name: Adding Lines To settings.xml file
+        shell: bash
+        env:
+          secret: { { $secrets.TEST } }
         run: |
           
-          sed -i 's/<server>/<server>\n<user username= secret  password="password" roles="manager-gui,admin-gui"\/>/' /home/runner/.m2/settings.xml
-        env:
-          secret: {{ $secrets.TEST }}
+          sed -i 's/<server>/<server>\n<user username= "$env:SUPER_SECRET"  password="password" roles="manager-gui,admin-gui"\/>/' /home/runner/.m2/settings.xml
+
       - name: Read settings.xml file
         run: cat /home/runner/.m2/settings.xml
