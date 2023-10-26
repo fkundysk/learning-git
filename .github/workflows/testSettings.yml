@@ -22,7 +22,7 @@ jobs:
       - name: maven-settings-xml-action
         uses: whelk-io/maven-settings-xml-action@v20
         with:
-          profiles: >
+          profiles: |
             [{"profile": 
                 {
                  "activation": {
@@ -44,6 +44,6 @@ jobs:
                  }
                }
             }]
-
+          output_file: .m2/settings.xml
       - name: Read settings.xml file
         run: cat /home/runner/.m2/settings.xml
