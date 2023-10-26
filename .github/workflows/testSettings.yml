@@ -15,3 +15,10 @@ jobs:
 
       - name: Read settings.xml file
         run: cat /home/runner/.m2/settings.xml
+
+      - name: Setup Maven Action
+        uses: s4u/setup-maven-action@v1.10.0
+
+      - name: maven-settings-temporary
+        uses: InstaCode/maven-settings-xml-action@v9
+
