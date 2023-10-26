@@ -1,1 +1,17 @@
 name: Settings Test
+on: worflow_dispatch
+
+jobs:
+  settings_test:
+    runs-on: ubuntu-latest
+
+    name: Configure Runner
+    steps:
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'corretto'
+          java-version: '17'
+
+      -name: Read settings.xml file
+        run: cat /home/runner/.m2/settings.xml
