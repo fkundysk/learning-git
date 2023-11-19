@@ -18,11 +18,16 @@ jobs:
         uses: actions/checkout@v3
 
 
-      - name: Git Commands
-        run:  |
-          git status
-          git pull
-          git checkout test
-          git status
+      - name: Git Commands via JS Action
+        uses: fkundysk/gitJavaScriptAction@main
+
+
+
+ #     - name: Git Commands
+  #      run:  |
+   #       git status
+    #      git pull
+     #     git checkout test
+      #    git status
           
 
