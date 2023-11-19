@@ -1,0 +1,21 @@
+name: Settings Test 2
+
+on: workflow_dispatch
+
+jobs:
+  settings_test:
+    runs-on: ubuntu-latest
+
+    name: Configure Runner
+    steps:
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'corretto'
+          java-version: '17'
+
+      - name: Git Commands
+        run:  |
+          git status
+          
+
