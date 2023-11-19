@@ -14,8 +14,8 @@ jobs:
           distribution: 'corretto'
           java-version: '17'
 
-      - name: Checkout
-        uses: actions/checkout@v3
+     # - name: Checkout
+      #  uses: actions/checkout@v3
 
 
       - name: Git Commands via JS Action
