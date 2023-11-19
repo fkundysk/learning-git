@@ -1,4 +1,4 @@
-name: Settings Test 2
+name: Git Command Test
 
 on: workflow_dispatch
 
