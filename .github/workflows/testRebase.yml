@@ -35,7 +35,7 @@ jobs:
             echo '******REBASE COMPLETED********'
 
   PR_TEST_BUILD:
-
+    needs: PR_TEST_REBASE
     runs-on: ubuntu-latest
     name: BUILD TEST
     steps:
