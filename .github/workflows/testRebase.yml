@@ -39,6 +39,6 @@ jobs:
           git pull
           git checkout ${{ github.event.pull_request.base.ref }}
           git pull
-          git rebase sourceBranch > rebase.txt
+          git rebase ${{ github.event.pull_request.head.ref }} > rebase.txt
           cat rebase.txt
           
