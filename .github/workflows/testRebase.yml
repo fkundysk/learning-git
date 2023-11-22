@@ -45,6 +45,3 @@ jobs:
           git log --oneline -n10
           cat rebase.txt
           echo '******REBASE COMPLETED********'
-          
-          
-          
