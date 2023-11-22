@@ -33,8 +33,17 @@ jobs:
         run:  |
           echo 'SOURCE BRANCH' $sourceBranch
           echo 'TARGET BRANCH' $targetBranch
-        #git remote -v
-        #git pull
-        #git checkout sourceBranch
-        #git pull
+          git remote -v
+          git pull
+          git checkout ${{ github.event.pull_request.head.ref }}
+          git pull
+          git log --oneline -n10
+          git checkout ${{ github.event.pull_request.base.ref }}
+          git pull
+          git log --oneline -n10
+          git rebase ${{ github.event.pull_request.head.ref }} > rebase.txt
+          git log --oneline -n10
+          cat rebase.txt
+          echo '******REBASE COMPLETED********'
+          
           
