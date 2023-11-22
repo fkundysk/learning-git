@@ -37,8 +37,12 @@ jobs:
           git pull
           git checkout ${{ github.event.pull_request.head.ref }}
           git pull
+          git log --oneline -n5
           git checkout ${{ github.event.pull_request.base.ref }}
           git pull
+          git log --oneline -n5
           git rebase ${{ github.event.pull_request.head.ref }} > rebase.txt
+          git log --oneline -n5
           cat rebase.txt
+          
           
