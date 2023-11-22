@@ -33,8 +33,12 @@ jobs:
         run:  |
           echo 'SOURCE BRANCH' $sourceBranch
           echo 'TARGET BRANCH' $targetBranch
-        #git remote -v
-        #git pull
-        #git checkout sourceBranch
-        #git pull
+          git remote -v
+          git pull
+          git checkout sourceBranch
+          git pull
+          git checkout targetBranch
+          git pull
+          git rebase sourceBranch > rebase.txt
+          cat rebase.txt
           
