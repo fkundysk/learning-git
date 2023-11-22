@@ -35,9 +35,9 @@ jobs:
           echo 'TARGET BRANCH' $targetBranch
           git remote -v
           git pull
-          git checkout sourceBranch
+          git checkout ${{ github.event.pull_request.head.ref }}
           git pull
-          git checkout targetBranch
+          git checkout ${{ github.event.pull_request.base.ref }}
           git pull
           git rebase sourceBranch > rebase.txt
           cat rebase.txt
