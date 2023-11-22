@@ -1,0 +1,40 @@
+name: REBASE PR TEST
+
+env:
+  sourceBranch: ${{ github.event.pull_request.head.ref }}
+  targetBranch: ${{ github.event.pull_request.base.ref }}
+
+on:
+  pull_request:
+    types:
+      - opened
+    branches:
+      - main
+
+
+jobs:
+  PR_TEST_REBASE:
+    runs-on: ubuntu-latest
+
+    name: REBASE TEST
+    steps:
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'corretto'
+          java-version: '17'
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Rebase Steps
+        run:  |
+          echo 'SOURCE BRANCH' $sourceBranch
+          echo 'TARGET BRANCH' $targetBranch
+        #git remote -v
+        #git pull
+        #git checkout sourceBranch
+        #git pull
+          
