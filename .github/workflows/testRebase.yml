@@ -44,5 +44,6 @@ jobs:
           git rebase ${{ github.event.pull_request.head.ref }} > rebase.txt
           git log --oneline -n10
           cat rebase.txt
+          echo '******REBASE COMPLETED********'
           
           
