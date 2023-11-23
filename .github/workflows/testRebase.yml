@@ -13,10 +13,32 @@ on:
 
 
 jobs:
+
   PR_TEST_REBASE:
     runs-on: ubuntu-latest
+      name: GITHUB_TEST
+      steps:
+        - name: Rebase Steps
+          run: |
+            echo 'SOURCE BRANCH' $sourceBranch
+            echo 'TARGET BRANCH' $targetBranch
+            git remote -v
+            git pull
+            git checkout ${{ github.event.pull_request.head.ref }}
+            git pull
+            git log --oneline -n10
+            git checkout ${{ github.event.pull_request.base.ref }}
+            git pull
+            git log --oneline -n10
+            git rebase ${{ github.event.pull_request.head.ref }} > rebase.txt
+            git log --oneline -n10
+            cat rebase.txt
+            echo '******REBASE COMPLETED********'
 
-    name: REBASE TEST
+  PR_TEST_BUILD:
+    needs: PR_TEST_REBASE
+    runs-on: ubuntu-latest
+    name: BUILD_TEST
     steps:
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -29,7 +51,7 @@ jobs:
         with:
           ref: main
 
-      - name: Rebase Steps
+      - name: ReGitHub Steps
         run:  |
           echo 'SOURCE BRANCH' $sourceBranch
           echo 'TARGET BRANCH' $targetBranch
