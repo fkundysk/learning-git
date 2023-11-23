@@ -15,7 +15,7 @@ on:
 jobs:
   PR_TEST_REBASE:
     runs-on: ubuntu-latest
-      name: BUILD TEST
+      name: REBASE TEST
       steps:
         - name: Rebase Steps
           run: |
