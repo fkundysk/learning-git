@@ -16,7 +16,7 @@ jobs:
 
   PR_TEST_REBASE:
     runs-on: ubuntu-latest
-      name: GITHUB_TEST
+    name: GITHUB_TEST
       steps:
         - name: Rebase Steps
           run: |
