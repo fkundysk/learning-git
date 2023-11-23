@@ -13,9 +13,10 @@ on:
 
 
 jobs:
+
   PR_TEST_REBASE:
     runs-on: ubuntu-latest
-      name: REBASE TEST
+      name: GITHUB_TEST
       steps:
         - name: Rebase Steps
           run: |
@@ -37,7 +38,7 @@ jobs:
   PR_TEST_BUILD:
     needs: PR_TEST_REBASE
     runs-on: ubuntu-latest
-    name: BUILD TEST
+    name: BUILD_TEST
     steps:
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -50,7 +51,7 @@ jobs:
         with:
           ref: main
 
-      - name: Rebase Steps
+      - name: ReGitHub Steps
         run:  |
           echo 'SOURCE BRANCH' $sourceBranch
           echo 'TARGET BRANCH' $targetBranch
